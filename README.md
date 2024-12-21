@@ -1,0 +1,1 @@
+# rails-nextjs-sampleApp
