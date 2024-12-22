@@ -21,40 +21,45 @@
 ## セットアップ & 起動方法
 
 ### 1. リポジトリのクローン
-
-```bash
+```
 git clone https://github.com/your-name/rails-nextjs-sampleApp.git
 cd rails-nextjs-sampleApp
+```
 
 ### 2. 動作確認
+```
 docker-compose build
 docker-compose up -d
 
 停止
 docker-compose down
+```
 
 Rails API
 
-http://localhost:3000/
+`http://localhost:3000/`
 
 フロントエンド
-http://localhost:3001/
+
+`http://localhost:3001/`
 
 ## Seedデータの投入と確認方法
 1. Seedデータの投入
+```
 docker-compose run --rm backend rails db:seed
-
-	•	db/seeds.rb の内容に従い、DBにサンプルデータが作成されます。
+```
 
 2. データの確認
-
 (A) Rails コンソールで確認
 
-コンテナが起動中の場合は以下のようにしてコンソールを開きます。
+コンテナが起動中の場合は以下のようにしてコンソールを開く
+```
 docker-compose exec backend rails console
-
+```
 まだ起動していない場合は:
+```
 docker-compose run --rm backend rails console
+```
 
 ```
 # ユーザーの件数確認
