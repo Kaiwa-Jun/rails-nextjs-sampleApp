@@ -104,3 +104,20 @@ Post.all
   },
 ]
 ```
+
+### 投稿詳細API
+
+- **エンドポインｔ**: `GET /posts/1`
+- **説明**: 登録されている任意の投稿データを JSON 形式で返します。
+- **サンプルレスポンス**:
+```json
+{
+"id": 1,
+"title": "Omnis quia nostrum.",
+"image_url": "https://placehold.jp/150x150.png",
+"description": "Vero quas itaque. Aut facilis sed.",
+"user_id": 12,
+"created_at": "2024-12-22T13:28:31.635Z",
+"updated_at": "2024-12-22T13:28:31.635Z"
+}
+```
