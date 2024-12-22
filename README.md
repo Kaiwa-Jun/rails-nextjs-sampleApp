@@ -74,3 +74,33 @@ Post.count
 # 投稿の一覧
 Post.all
 ```
+
+## API一覧
+
+### 投稿一覧API
+
+- **エンドポインｔ**: `GET /posts`
+- **説明**: 登録されている全ての投稿データを JSON 形式で返します。
+- **サンプルレスポンス**:
+  ```json
+[
+  {
+  "id": 1,
+  "title": "Omnis quia nostrum.",
+  "image_url": "https://placehold.jp/150x150.png",
+  "description": "Vero quas itaque. Aut facilis sed.",
+  "user_id": 12,
+  "created_at": "2024-12-22T13:28:31.635Z",
+  "updated_at": "2024-12-22T13:28:31.635Z"
+  },
+  {
+  "id": 2,
+  "title": "Cum et quia.",
+  "image_url": "https://placehold.jp/150x150.png",
+  "description": "Quo reiciendis saepe. In aut qui.",
+  "user_id": 11,
+  "created_at": "2024-12-22T13:28:31.639Z",
+  "updated_at": "2024-12-22T13:28:31.639Z"
+  },
+]
+  ```
