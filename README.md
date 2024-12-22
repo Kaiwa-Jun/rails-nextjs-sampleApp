@@ -34,7 +34,38 @@ docker-compose up -d
 docker-compose down
 
 Rails API
+
 http://localhost:3000/
 
 フロントエンド
 http://localhost:3001/
+
+## Seedデータの投入と確認方法
+1. Seedデータの投入
+docker-compose run --rm backend rails db:seed
+
+	•	db/seeds.rb の内容に従い、DBにサンプルデータが作成されます。
+
+2. データの確認
+
+(A) Rails コンソールで確認
+
+コンテナが起動中の場合は以下のようにしてコンソールを開きます。
+docker-compose exec backend rails console
+
+まだ起動していない場合は:
+docker-compose run --rm backend rails console
+
+```
+# ユーザーの件数確認
+User.count
+
+# ユーザーの一覧
+User.all
+
+# 投稿(Post)の件数確認
+Post.count
+
+# 投稿の一覧
+Post.all
+```
