@@ -176,3 +176,13 @@ Post.all
   "error": "Invalid email or password"
 }
 ```
+
+### ログアウトAPI
+- **エンドポイント**: `DELETE /api/logout`
+- **説明**: サーバー側のセッションを破棄し、ユーザーをログアウト状態にする
+- **レスポンス例**:
+  ```json
+{
+  "message": "Logged out successfully"
+}
+```

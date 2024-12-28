@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
       render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
   end
+
+  def destroy
+    reset_session
+    render json: { message: 'Logged out successfully' }, status: :ok
+  end
 end

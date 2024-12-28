@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :create]
   scope :api do
     post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
   end
 end
