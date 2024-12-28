@@ -28,11 +28,11 @@ cd rails-nextjs-sampleApp
 
 ### 2. 動作確認
 ```
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 
 停止
-docker-compose down
+docker compose down
 ```
 
 Rails API
@@ -46,7 +46,7 @@ Rails API
 ## Seedデータの投入と確認方法
 1. Seedデータの投入
 ```
-docker-compose run --rm backend rails db:seed
+docker compose run --rm backend rails db:seed
 ```
 
 2. データの確認
@@ -54,11 +54,11 @@ docker-compose run --rm backend rails db:seed
 
 コンテナが起動中の場合は以下のようにしてコンソールを開く
 ```
-docker-compose exec backend rails console
+docker compose exec backend rails console
 ```
 まだ起動していない場合は:
 ```
-docker-compose run --rm backend rails console
+docker compose run --rm backend rails console
 ```
 
 ```
