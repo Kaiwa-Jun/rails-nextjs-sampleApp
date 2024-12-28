@@ -121,3 +121,31 @@ Post.all
 "updated_at": "2024-12-22T13:28:31.635Z"
 }
 ```
+
+### 投稿一覧API
+- **エンドポインｔ**: `POST /posts`
+- **説明**: 新しい投稿を作成し、JSON 形式で返します。
+- **リクエスト例**:
+```json
+{
+  "post": {
+    "title": "サンプルタイトル",
+    "image_url": "https://example.com/test-image.png",
+    "description": "サンプル説明文です",
+    "user_id": 1
+  }
+}
+```
+
+- **サンプルレスポンス**:
+```json
+{
+  "id": 22,
+  "title": "サンプルタイトル",
+  "image_url": "https://example.com/test-image.png",
+  "description": "サンプル説明文です",
+  "user_id": 1,
+  "created_at": "2024-12-28T08:29:41.199Z",
+  "updated_at": "2024-12-28T08:29:41.199Z"
+}
+```
