@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/hello", to: "hello#index"
   resources :posts, only: [:index, :show, :create]
   scope :api do
+    post '/signup', to: 'registrations#create'
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
