@@ -149,3 +149,30 @@ Post.all
   "updated_at": "2024-12-28T08:29:41.199Z"
 }
 ```
+
+### ログインAPI
+- **エンドポインｔ**: `POST /api/login`
+- **説明**: 既存ユーザーのメールアドレスとパスワードを使ってログイン判定を行います
+- **リクエスト例**:
+```json
+{
+  "email": "test@example.com",
+  "password": "password"
+}
+```
+
+- **サンプルレスポンス**:
+**成功 (ステータス 200 OK)**
+```json
+{
+  "message": "Signed in successfully",
+  "user_id": 7
+}
+```
+
+**失敗 (ステータス 401 Unauthorized)**
+```json
+{
+  "error": "Invalid email or password"
+}
+```
