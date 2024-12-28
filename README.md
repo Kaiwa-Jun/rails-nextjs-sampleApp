@@ -181,7 +181,7 @@ Post.all
 - **エンドポイント**: `DELETE /api/logout`
 - **説明**: サーバー側のセッションを破棄し、ユーザーをログアウト状態にする
 - **レスポンス例**:
-  ```json
+```json
 {
   "message": "Logged out successfully"
 }
