@@ -186,3 +186,36 @@ Post.all
   "message": "Logged out successfully"
 }
 ```
+
+### 会員登録（サインアップ）API
+- **エンドポイント**: `POST /api/signup`
+- **説明**: 新規ユーザーを登録する。Deviseを利用したUserモデルに対し、メールアドレスとパスワードを送信する。  
+- **リクエスト例**:
+```json
+{
+  "user": {
+    "email": "new_user@example.com",
+    "password": "password",
+    "password_confirmation": "password"
+  }
+}
+```
+
+- **サンプルレスポンス (成功)**
+```json
+{
+  "message": "User created successfully",
+  "user_id": 8,
+  "email": "new_user@example.com"
+}
+```
+
+- **サンプルレスポンス (失敗)** 
+```json
+{
+  "errors": [
+    "Email has already been taken",
+    "Password is too short (minimum is 6 characters)"
+  ]
+}
+```
