@@ -256,3 +256,22 @@ Post.all
   ]
 }
 ```
+
+### 投稿削除API
+- エンドポイント: DELETE /posts/:id
+- 説明: 既存の投稿の title, image_url, description, user_id を更新します
+- **サンプルレスポンス (成功)**
+```json
+{
+  "message": "Post deleted successfully"
+}
+```
+
+- **サンプルレスポンス (失敗)** 
+```json
+{
+  "errors": [
+    "Title can't be blank"
+  ]
+}
+```
