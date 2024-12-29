@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # 認証の実装後に削除
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
     @posts = Post.all
@@ -16,6 +16,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       render json: @post, status: :created
+    else
+      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      render json: @post, status: :ok
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
