@@ -219,3 +219,40 @@ Post.all
   ]
 }
 ```
+
+### 投稿編集API
+- エンドポイント: PATCH /posts/:id
+- 説明: 既存の投稿の title, image_url, description, user_id を更新します
+- **リクエスト例**
+```json
+{
+  "post": {
+    "title": "更新後のタイトル",
+    "image_url": "https://example.com/updated-image.png",
+    "description": "更新後の説明文",
+    "user_id": 1
+  }
+}
+```
+
+- **サンプルレスポンス (成功)**
+```json
+{
+  "id": 10,
+  "title": "更新後のタイトル",
+  "image_url": "https://example.com/updated-image.png",
+  "description": "更新後の説明文",
+  "user_id": 1,
+  "created_at": "2024-12-28T09:00:00.000Z",
+  "updated_at": "2024-12-28T11:00:00.000Z"
+}
+```
+
+- **サンプルレスポンス (失敗)** 
+```json
+{
+  "errors": [
+    "Title can't be blank"
+  ]
+}
+```
