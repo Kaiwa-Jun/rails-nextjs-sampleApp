@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # 認証の実装後に削除
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -28,6 +28,12 @@ class PostsController < ApplicationController
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render json: { message: 'Post deleted successfully' }, status: :ok
   end
   
   private
