@@ -37,7 +37,7 @@ export default function PostsList() {
     {posts.length > 0 ? (
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <li key={post.id} className="p-4 rounded shadow transition-transform transform hover:scale-105 hover:brightness-110 bg-white">
+          <li key={post.id} className="p-4 rounded shadow transition-transform transform hover:scale-105 hover:brightness-110">
             <h2 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-full">{post.title}</h2>
             <img
               src={post.image_url}
