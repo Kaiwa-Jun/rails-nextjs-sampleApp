@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Loading from "./posts/loading";
 
 type Post = {
   id: number;
@@ -14,7 +13,6 @@ type Post = {
 export default function PostsList() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch("http://localhost:3000/posts")
@@ -26,11 +24,9 @@ export default function PostsList() {
       })
       .then((data: Post[]) => {
         setPosts(data);
-        setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
-        setLoading(false);
       });
   }, []);
 
@@ -38,9 +34,7 @@ export default function PostsList() {
   <div className="p-4">
     <h1 className="text-2xl font-bold mb-4">Posts List</h1>
     {error && <p className="text-red-500">Error: {error}</p>}
-    {loading ? (
-      <Loading />
-    ) : (
+    {posts.length > 0 ? (
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <li key={post.id} className="p-4 rounded shadow transition-transform transform hover:scale-105 hover:brightness-110 bg-white">
@@ -54,6 +48,8 @@ export default function PostsList() {
           </li>
         ))}
       </ul>
+    ) : (
+      <p>Loading...</p>
     )}
   </div>
 );
