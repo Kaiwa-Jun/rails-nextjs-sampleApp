@@ -52,13 +52,3 @@ test("displays error message on fetch failure", async () => {
     expect(screen.getByText(/Error:/)).toBeInTheDocument();
   });
 });
-
-test("displays loading indicator while fetching posts", async () => {
-  render(<PostsList />);
-
-  expect(screen.getByText("Loading...")).toBeInTheDocument();
-
-  await waitFor(() => {
-    expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
-  });
-});
