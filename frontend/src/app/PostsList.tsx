@@ -31,22 +31,26 @@ export default function PostsList() {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Posts List</h1>
-      {error && <p className="text-red-500">Error: {error}</p>}
-      {posts.length > 0 ? (
-        <ul className="space-y-4">
-          {posts.map((post) => (
-            <li key={post.id} className="p-4 border rounded shadow">
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <img src={post.image_url} alt={post.title} className="w-full h-auto mt-2" />
-              <p className="mt-2">{post.description}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+  <div className="p-4">
+    <h1 className="text-2xl font-bold mb-4">Posts List</h1>
+    {error && <p className="text-red-500">Error: {error}</p>}
+    {posts.length > 0 ? (
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {posts.map((post) => (
+          <li key={post.id} className="p-4 border rounded shadow">
+            <h2 className="text-xl font-semibold">{post.title}</h2>
+            <img
+              src={post.image_url}
+              alt={post.title}
+              className="w-full h-auto mt-2"
+            />
+            <p className="mt-2">{post.description}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>Loading...</p>
+    )}
+  </div>
+);
 }
