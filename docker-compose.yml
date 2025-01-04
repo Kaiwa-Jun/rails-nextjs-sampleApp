@@ -25,8 +25,8 @@ services:
     container_name: next_app
     ports:
       - '3001:3000'
-    # volumes:
-    #   - ./frontend:/app
+    volumes:
+      - ./frontend:/app
     depends_on:
       - backend
 
