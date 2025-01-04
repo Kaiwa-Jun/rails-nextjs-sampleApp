@@ -38,7 +38,7 @@ export default function PostsList() {
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <li key={post.id} className="p-4 border rounded shadow">
-            <h2 className="text-xl font-semibold">{post.title}</h2>
+            <h2 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-full">{post.title}</h2>
             <img
               src={post.image_url}
               alt={post.title}
