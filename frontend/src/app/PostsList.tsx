@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type Post = {
   id: number;
@@ -11,6 +12,7 @@ type Post = {
 };
 
 export default function PostsList() {
+  const router = useRouter();
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -37,7 +39,11 @@ export default function PostsList() {
     {posts.length > 0 ? (
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <li key={post.id} className="p-4 rounded shadow transition-transform transform hover:scale-105 hover:brightness-110 bg-white">
+          <li
+            key={post.id}
+            className="p-4 rounded shadow transition-transform transform hover:scale-105 hover:brightness-110 bg-white cursor-pointer"
+            onClick={() => router.push(`/posts/${post.id}`)}
+          >
             <h2 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-full">{post.title}</h2>
             <img
               src={post.image_url}
