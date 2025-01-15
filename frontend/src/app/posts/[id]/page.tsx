@@ -42,11 +42,17 @@ export default function PostDetail() {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      <h1
+        className="text-3xl font-bold mb-4"
+        data-view-transition-name={`title-${post.id}`}
+      >
+        {post.title}
+      </h1>
       <img
         src={post.image_url}
         alt={post.title}
         className="w-full h-auto rounded-lg mb-4"
+        data-view-transition-name={`image-${post.id}`}
       />
       <p className="text-gray-700">{post.description}</p>
     </div>

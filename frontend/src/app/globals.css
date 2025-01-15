@@ -19,3 +19,23 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 旧画面を示す擬似要素 */
+::view-transition-old(root),
+/* 新画面を示す擬似要素 */
+::view-transition-new(root) {
+  /* 2秒かけてトランスフォーム＆フェードする */
+  animation: view-transition-fade-scale 1s ease;
+}
+
+/* アニメーション定義 */
+@keyframes view-transition-fade-scale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
